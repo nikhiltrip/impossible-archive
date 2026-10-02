@@ -1,11 +1,123 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#141613"><meta name="description" content="Nikhil Tripathi — UCLA computer science, software engineering, research, and an archive of curiosities."><title>Nikhil Tripathi — The Impossible Archive</title><link rel="stylesheet" href="style.css"></head><body>
-<div class="grain" aria-hidden="true"></div>
-<header><a class="wordmark" href="#" aria-label="Return to archive entrance"><span class="mark">N<span>↗</span>T</span><span>NIKHIL TRIPATHI<small>THE IMPOSSIBLE ARCHIVE</small></span></a><nav aria-label="Main navigation"><button data-section="projects">Projects</button><button data-section="experience">Experience</button><button data-section="about">About</button><a href="Nikhil-Tripathi-Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></nav><span class="location"><i></i> LOS ANGELES, CA</span></header>
-<main id="app">
-<div class="room" aria-hidden="true"><div class="back-wall"></div><div class="ceiling"></div><div class="shelves shelves-left"></div><div class="shelves shelves-right"></div><div class="floor"></div><div class="light-wire"></div><div class="light"></div><div class="light-cone"></div><div class="room-number">ARCHIVE 028<br><span>COLLECTION IN PROGRESS</span></div><canvas id="dust"></canvas><div class="orbital"><svg viewBox="0 0 240 220"><path d="M120 115 C15 1 2 210 90 165 C171 120 230 5 157 30 C60 61 57 207 144 176 C230 145 228 10 158 38 C75 70 26 163 83 175 C150 190 198 21 146 39 C84 60 55 127 83 151"/></svg></div></div>
-<section class="intro" aria-labelledby="intro-title"><div class="eyebrow"><span>PERSONAL COLLECTION</span><b>VOL. 01 / 2026</b></div><h1 id="intro-title">A mind with<br>many <em>drawers.</em></h1><p>Software, research, and a few things<br>that don’t fit neatly into a folder.</p><button class="enter" id="enter">Open the archive <span>↗</span></button><div class="intro-note"><span class="crosshair">✳</span><span>COMPUTER SCIENCE AT UCLA.<br>CURIOUS ABOUT ALMOST EVERYTHING.</span></div></section>
-<div class="cabinet-scene"><div class="cabinet" id="cabinet"><div class="cabinet-top"><span>N.T. / PERSONAL ARCHIVE</span><span>028</span></div><div class="cabinet-side"></div><div class="cabinet-face"><div class="cabinet-brand">INDEX <span>®</span><small>A COLLECTION OF WORK & WONDER</small></div><div id="drawers"></div><div class="cabinet-base"><span>EST. WITH CURIOSITY</span><span>●</span></div></div><div class="cabinet-shadow"></div></div><span class="cabinet-caption">FIVE DRAWERS. A WORK IN PROGRESS.<span>SELECT ONE TO LOOK INSIDE ↗</span></span></div>
-<section id="archive" class="archive" aria-label="Archive contents" hidden><div class="archive-top"><button id="close" class="back">← Back to the room</button><span>PERSONAL ARCHIVE / <span id="section-number">01</span></span></div><div class="archive-heading"><div><span class="eyebrow" id="section-kicker"></span><h2 id="section-title"></h2></div><span class="stamp">N.T.<br>COLLECTION</span></div><div id="section-content"></div></section>
-<footer><span>AN INTERACTIVE INDEX OF ME.</span><span class="footer-center">BUILT TO BE EXPLORED <span>↓</span></span><button data-section="contact">GET IN TOUCH ↗</button></footer>
-</main><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#141613" />
+    <meta
+      name="description"
+      content="Nikhil Tripathi — UCLA computer science, software engineering, research, and an archive of curiosities."
+    />
+    <title>Nikhil Tripathi — The Impossible Archive</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header>
+      <a class="wordmark" href="#" aria-label="Return to archive entrance"
+        ><span class="mark">N<span>↗</span>T</span
+        ><span>NIKHIL TRIPATHI<small>THE IMPOSSIBLE ARCHIVE</small></span></a
+      >
+      <nav aria-label="Main navigation">
+        <button data-section="projects">Projects</button
+        ><button data-section="experience">Experience</button
+        ><button data-section="about">About</button
+        ><a href="Nikhil-Tripathi-Resume.pdf" target="_blank" rel="noopener"
+          >Résumé ↗</a
+        >
+      </nav>
+      <span class="location"><i></i> LOS ANGELES, CA</span>
+    </header>
+    <main id="app">
+      <div class="room" aria-hidden="true">
+        <div class="back-wall"></div>
+        <div class="ceiling"></div>
+        <div class="shelves shelves-left"></div>
+        <div class="shelves shelves-right"></div>
+        <div class="floor"></div>
+        <div class="light-wire"></div>
+        <div class="light"></div>
+        <div class="light-cone"></div>
+        <div class="room-number">
+          ARCHIVE 028<br /><span>COLLECTION IN PROGRESS</span>
+        </div>
+        <canvas id="dust"></canvas>
+        <div class="orbital">
+          <svg viewBox="0 0 240 220">
+            <path
+              d="M120 115 C15 1 2 210 90 165 C171 120 230 5 157 30 C60 61 57 207 144 176 C230 145 228 10 158 38 C75 70 26 163 83 175 C150 190 198 21 146 39 C84 60 55 127 83 151"
+            />
+          </svg>
+        </div>
+      </div>
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="eyebrow">
+          <span>PERSONAL COLLECTION</span><b>VOL. 01 / 2026</b>
+        </div>
+        <h1 id="intro-title">A mind with<br />many <em>drawers.</em></h1>
+        <p>
+          Software, research, and a few things<br />that don’t fit neatly into a
+          folder.
+        </p>
+        <button class="enter" id="enter">
+          Open the archive <span>↗</span>
+        </button>
+        <div class="intro-note">
+          <span class="crosshair">✳</span
+          ><span
+            >COMPUTER SCIENCE AT UCLA.<br />CURIOUS ABOUT ALMOST
+            EVERYTHING.</span
+          >
+        </div>
+      </section>
+      <div class="cabinet-scene">
+        <div class="cabinet" id="cabinet">
+          <div class="cabinet-top">
+            <span>N.T. / PERSONAL ARCHIVE</span><span>028</span>
+          </div>
+          <div class="cabinet-side"></div>
+          <div class="cabinet-face">
+            <div class="cabinet-brand">
+              INDEX <span>®</span><small>A COLLECTION OF WORK & WONDER</small>
+            </div>
+            <div id="drawers"></div>
+            <div class="cabinet-base">
+              <span>EST. WITH CURIOSITY</span><span>●</span>
+            </div>
+          </div>
+          <div class="cabinet-shadow"></div>
+        </div>
+        <span class="cabinet-caption"
+          >FIVE DRAWERS. A WORK IN PROGRESS.<span
+            >SELECT ONE TO LOOK INSIDE ↗</span
+          ></span
+        >
+      </div>
+      <section
+        id="archive"
+        class="archive"
+        aria-label="Archive contents"
+        hidden
+      >
+        <div class="archive-top">
+          <button id="close" class="back">← Back to the room</button
+          ><span>PERSONAL ARCHIVE / <span id="section-number">01</span></span>
+        </div>
+        <div class="archive-heading">
+          <div>
+            <span class="eyebrow" id="section-kicker"></span>
+            <h2 id="section-title"></h2>
+          </div>
+          <span class="stamp">N.T.<br />COLLECTION</span>
+        </div>
+        <div id="section-content"></div>
+      </section>
+      <footer>
+        <span>AN INTERACTIVE INDEX OF ME.</span
+        ><span class="footer-center">BUILT TO BE EXPLORED <span>↓</span></span
+        ><button data-section="contact">GET IN TOUCH ↗</button>
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
