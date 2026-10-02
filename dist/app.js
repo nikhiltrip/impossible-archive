@@ -29,7 +29,7 @@ const entries = {
       notes:
         "A React interface backed by Node.js and PostgreSQL, with database migrations and Docker configuration. The repository contains the application; a public sandbox is not currently available.",
       tags: ["React", "Node.js", "PostgreSQL", "Docker"],
-      art: "cards",
+      art: "ats",
       link: "https://github.com/beck-2/ATS",
       status: "SOURCE AVAILABLE",
     },
@@ -55,7 +55,7 @@ const entries = {
       notes:
         "The current repository includes ingestion, cleaning, text preprocessing, and temporal and sentiment features. Modeling and evaluation are still in progress.",
       tags: ["Python", "Pandas", "Text processing"],
-      art: "signals",
+      art: "topics",
       link: "https://github.com/nikhiltrip/campustrends",
       status: "IN DEVELOPMENT",
     },
@@ -68,7 +68,7 @@ const entries = {
       notes:
         "Includes Python collection logic, probability calculations, an Express API, and a React dashboard. Live collection and refresh reliability need further work; this is not a public production service.",
       tags: ["Python", "Express", "React", "Data collection"],
-      art: "bars",
+      art: "odds",
       link: "https://github.com/nikhiltrip/propshop",
       status: "PROTOTYPE",
     },
@@ -83,7 +83,7 @@ const entries = {
       notes:
         "Used Spring Boot, Spring AI, Redis, PostgreSQL, and vector retrieval to connect natural-language questions with source information and exact database aggregation. Developed evaluation cases and QA workflows. Internal implementation and data remain private.",
       tags: ["Java", "Spring Boot", "PostgreSQL", "Redis"],
-      art: "signals",
+      art: "retrieval",
       status: "SUMMER 2026",
     },
     {
@@ -95,7 +95,7 @@ const entries = {
       notes:
         "Developed local transcription, acoustic-feature extraction, coverage checks, and transcript-quality workflows using Whisper, Librosa, and Pandas. The work supports exploratory analysis; it is not a clinically validated stress diagnostic. Participant data is not shared here.",
       tags: ["Python", "Whisper", "Librosa", "Research"],
-      art: "wave",
+      art: "audio",
       status: "MARCH 2026 — PRESENT",
     },
     {
@@ -107,7 +107,7 @@ const entries = {
       notes:
         "Experience included ETL, signal-processing workflows, automated testing, and container-based development and deployment tooling. Company code and data are not publicly available.",
       tags: ["Python", "ETL", "Docker", "CI/CD"],
-      art: "bars",
+      art: "sensor",
       status: "SUMMER 2025",
     },
   ],
@@ -124,6 +124,10 @@ document.querySelector("#drawers").innerHTML = sections
   )
   .join("");
 function openSection(key, focus = true) {
+  clearTimeout(walkTimer);
+  app.classList.remove("walking");
+  document.querySelector("#enter").disabled = false;
+  document.querySelector(".walk-status").textContent = "";
   current = key;
   selected = 0;
   const s = sections.find((x) => x[0] === key);
@@ -170,9 +174,9 @@ function render() {
     return;
   }
   if (current === "about") {
-    content.innerHTML = `<div class="about-layout"><div><h3 class="about-title">Curiosity doesn’t<br>keep office hours.</h3><p class="about-copy">I’m Nikhil, a computer science student at UCLA. I enjoy finding the point where an interesting idea becomes something someone can actually use.</p><p class="about-copy">My work has taken me through financial software, sensor-data pipelines, clinical-audio research, and projects inspired by my own everyday life.</p><p class="about-copy">I’m interested in software systems, applied machine learning, and the questions that sit between disciplines.</p><div class="profile-meta"><span>BASED IN<br>LOS ANGELES</span><span>CURRENTLY<br>BUILDING & LEARNING</span></div></div><aside class="hobby-note"><h3>Beyond the work.</h3><div class="hobby"><small>01</small>Running the long way home</div><p>I’ve run several half marathons and am currently training for a marathon. That’s where the idea for Milemark began.</p><div class="hobby"><small>02</small>Writing about philosophy</div><div class="hobby"><small>03</small>Cooking something new</div><div class="hobby"><small>04</small>Weightlifting</div><p>A few things that keep me curious, grounded, and away from a screen.</p></aside></div>`;
+    content.innerHTML = `<div class="about-layout"><div><h3 class="about-title">Curiosity doesn’t<br>keep office hours.</h3><p class="about-copy">I’m Nikhil, a computer science student at UCLA. I enjoy finding the point where an interesting idea becomes something someone can actually use.</p><p class="about-copy">My work has taken me through financial software, sensor-data pipelines, clinical-audio research, and projects inspired by my own everyday life.</p><p class="about-copy">I’m interested in software systems, applied machine learning, and the questions that sit between disciplines.</p><div class="profile-meta"><span>BASED IN<br>LOS ANGELES</span><span>CURRENTLY<br>BUILDING & LEARNING</span></div></div><aside class="hobby-note"><h3>Beyond the work.</h3><div class="hobby"><small>01</small>Running</div><div class="hobby"><small>02</small>Writing about philosophy</div><div class="hobby"><small>03</small>Cooking something new</div><div class="hobby"><small>04</small>Weightlifting</div><p>A few things that keep me curious, grounded, and away from a screen.</p></aside></div>`;
   } else if (current === "education") {
-    content.innerHTML = `<div class="education-card"><span class="eyebrow">LOS ANGELES, CALIFORNIA</span><h3>University of California,<br>Los Angeles</h3><p>Bachelor of Science in Computer Science<br>Expected graduation: June 2028</p><div class="tags"><span>UCLA</span><span>Computer Science</span><span>Class of 2028</span></div></div><article class="document"><h4>QUESTIONS I KEEP COMING BACK TO</h4><div class="interest-list"><p><small>01</small>How do we build dependable systems?</p><p><small>02</small>What can we learn from messy data?</p><p><small>03</small>How can software support research?</p><p><small>04</small>What makes a tool worth using?</p></div></article>`;
+    content.innerHTML = `<div class="education-card"><span class="eyebrow">LOS ANGELES, CALIFORNIA</span><h3>University of California,<br>Los Angeles</h3><p>Bachelor of Science in Computer Science<br>Expected graduation: June 2028</p><div class="tags"><span>UCLA</span><span>Computer Science</span><span>Class of 2028</span></div></div><article class="document"><h4>QUESTIONS I KEEP COMING BACK TO</h4><div class="interest-list"><p><small>01</small>When software mediates our choices, where does human agency end and system design begin?</p><p><small>02</small>What does it mean for a computational model to know something, rather than merely predict it?</p><p><small>03</small>Which values are embedded in an objective function—and whose definition of “better” does it encode?</p><p><small>04</small>What responsibility does an engineer have for the unintended consequences of a system that works as designed?</p></div></article>`;
   } else {
     content.innerHTML = `<h3 class="contact-title">Good things start<br>with a conversation.</h3><p class="contact-sub">Want to talk about software, research, or something you found in the archive? I’d love to hear from you.</p><a class="contact-link" href="mailto:nikhiltrip1@gmail.com"><span>Email <small>nikhiltrip1@gmail.com</small></span><span>↗</span></a><a class="contact-link" href="https://github.com/nikhiltrip" target="_blank" rel="noopener"><span>GitHub <small>@nikhiltrip</small></span><span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/nikhil-tripathi-443689233" target="_blank" rel="noopener"><span>LinkedIn <small>LET’S CONNECT</small></span><span>↗</span></a><a class="contact-link" href="Nikhil-Tripathi-Resume.pdf" target="_blank" rel="noopener"><span>Résumé <small>PDF / OPEN FILE</small></span><span>↗</span></a><p class="contact-note">FROM THE PERSONAL ARCHIVE OF NIKHIL TRIPATHI.</p>`;
   }
@@ -184,10 +188,29 @@ function renderDocument() {
     b.setAttribute("aria-pressed", String(i === selected));
   });
   document.querySelector("#document").innerHTML =
-    `<div class="document-head"><span>${e.category}</span><span>${e.id}</span></div><h3>${e.title}</h3><p class="lead">${e.subtitle}</p><div class="artifact"><canvas id="artifact"></canvas><span class="artifact-label">${e.art === "lorenz" ? "LORENZ / LIVE NUMERICAL SKETCH" : "VISUAL STUDY / " + e.category}</span><span class="artifact-number">${e.id}</span></div><p>${e.body}</p><h4>INSIDE THE FILE</h4><p>${e.notes}</p><div class="tags">${e.tags.map((t) => `<span>${t}</span>`).join("")}</div><div class="doc-links">${e.link ? `<a href="${e.link}" target="_blank" rel="noopener">Explore source ↗</a>` : ""}<span class="contact-note" style="margin:0">${e.status}</span></div>`;
-  drawArtifact(e.art);
+    `<div class="document-head"><span>${e.category}</span><span>${e.id}</span></div><h3>${e.title}</h3><p class="lead">${e.subtitle}</p>${projectVisual(e)}<p>${e.body}</p><h4>INSIDE THE FILE</h4><p>${e.notes}</p><div class="tags">${e.tags.map((t) => `<span>${t}</span>`).join("")}</div><div class="doc-links">${e.link ? `<a href="${e.link}" target="_blank" rel="noopener">Explore source ↗</a>` : ""}<span class="contact-note" style="margin:0">${e.status}</span></div>`;
+  if (e.art === "lorenz") drawArtifact(e.art);
+  wireVisual(e.art);
+}
+let walkTimer;
+function enterArchive(key = "projects") {
+  if (reduced || app.classList.contains("entered")) return openSection(key);
+  clearTimeout(walkTimer);
+  app.classList.add("walking");
+  document.querySelector("#enter").disabled = true;
+  document.querySelector(".walk-status").textContent = "Entering the archive…";
+  walkTimer = setTimeout(() => {
+    app.classList.remove("walking");
+    document.querySelector("#enter").disabled = false;
+    document.querySelector(".walk-status").textContent = "";
+    openSection(key);
+  }, 1450);
 }
 function closeArchive() {
+  clearTimeout(walkTimer);
+  app.classList.remove("walking");
+  document.querySelector("#enter").disabled = false;
+  document.querySelector(".walk-status").textContent = "";
   cancelAnimationFrame(artifactFrame);
   archive.hidden = true;
   app.classList.remove("entered");
@@ -201,7 +224,11 @@ function closeArchive() {
 }
 document.addEventListener("click", (e) => {
   const s = e.target.closest("[data-section]");
-  if (s) openSection(s.dataset.section);
+  if (s) {
+    if (s.classList.contains("drawer") && !app.classList.contains("entered"))
+      enterArchive(s.dataset.section);
+    else openSection(s.dataset.section);
+  }
   const entry = e.target.closest("[data-entry]");
   if (entry) {
     selected = Number(entry.dataset.entry);
@@ -209,7 +236,7 @@ document.addEventListener("click", (e) => {
     renderDocument();
   }
 });
-document.querySelector("#enter").onclick = () => openSection("projects");
+document.querySelector("#enter").onclick = () => enterArchive("projects");
 document.querySelector("#close").onclick = closeArchive;
 document.querySelector(".wordmark").onclick = (e) => {
   e.preventDefault();
@@ -343,5 +370,31 @@ function particles() {
   if (!reduced) requestAnimationFrame(particles);
 }
 particles();
+let pointerFrame;
+app.addEventListener("pointermove", (event) => {
+  if (
+    reduced ||
+    event.pointerType !== "mouse" ||
+    app.classList.contains("entered") ||
+    app.classList.contains("walking")
+  )
+    return;
+  cancelAnimationFrame(pointerFrame);
+  pointerFrame = requestAnimationFrame(() => {
+    const bounds = app.getBoundingClientRect();
+    app.style.setProperty(
+      "--look-x",
+      `${((event.clientX - bounds.left) / bounds.width - 0.5) * 12}px`,
+    );
+    app.style.setProperty(
+      "--look-y",
+      `${((event.clientY - bounds.top) / bounds.height - 0.5) * 7}px`,
+    );
+  });
+});
+app.addEventListener("pointerleave", () => {
+  app.style.setProperty("--look-x", "0px");
+  app.style.setProperty("--look-y", "0px");
+});
 const initial = location.hash.slice(1);
 if (sections.some((s) => s[0] === initial)) openSection(initial, false);

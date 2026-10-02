@@ -1160,3 +1160,576 @@ footer button {
     min-height: calc(100svh - 112px);
   }
 }
+/* A short approach through the room, followed by the selected drawer. */
+.room {
+  transform-origin: 65% 48%;
+  transition:
+    transform 1.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 1.4s;
+  transform: translate(var(--look-x, 0px), var(--look-y, 0px)) scale(1.02);
+}
+.walking .room {
+  transform: scale(1.8) translateX(-6%);
+  filter: brightness(1.3);
+}
+.walking .intro {
+  opacity: 0;
+  transform: translateX(-100px);
+  pointer-events: none;
+}
+.walking .cabinet-scene {
+  transform: scale(1.65) translate(-12%, 8%);
+  transition: transform 1.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.entered .room {
+  transform: scale(1.14);
+  filter: brightness(0.6);
+}
+.walk-status {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  top: 50%;
+  font: 9px monospace;
+  letter-spacing: 2px;
+  color: #e5e7d3;
+  pointer-events: none;
+}
+.room-object {
+  position: absolute;
+  z-index: 4;
+  left: 34%;
+  bottom: 8%;
+  color: #aeb69b;
+  transform: rotate(-7deg);
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+  opacity: 0.55;
+  padding: 14px;
+}
+.room-object > span {
+  display: block;
+  font-size: 28px;
+}
+.room-object small {
+  font: 6px monospace;
+  letter-spacing: 1px;
+}
+.room-object:hover {
+  opacity: 1;
+  transform: rotate(4deg) translateY(-5px);
+}
+.entered .room-object,
+.walking .room-object {
+  opacity: 0;
+  pointer-events: none;
+}
+.entered .drawer.active {
+  transform: translateX(-12px) translateY(-3px) translateZ(40px);
+  box-shadow:
+    inset 0 1px #dfe4ce36,
+    10px 12px 6px #121a1199;
+}
+.folder-tab {
+  transition:
+    transform 0.35s,
+    background 0.35s,
+    box-shadow 0.35s;
+}
+.folder-tab:hover {
+  transform: translateX(7px) rotate(-1deg);
+}
+.hobby {
+  transition: transform 0.25s;
+}
+.hobby:hover {
+  transform: translateX(5px);
+}
+.interest-list p {
+  line-height: 1.9;
+}
+.study-caption {
+  margin: 0;
+  padding: 13px 17px;
+  border-top: 1px solid #82947124;
+  font: 9px/1.7 var(--body);
+  color: #aab79a;
+  min-height: 53px;
+}
+.visual-study {
+  margin: 18px 0;
+  background: #192219;
+  border: 1px solid #2d3e29;
+  color: #d9e2cd;
+  overflow: hidden;
+}
+.study-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  font: 7px/1.5 monospace;
+  letter-spacing: 1px;
+  padding: 14px 17px;
+  border-bottom: 1px solid #81916c27;
+}
+.study-live {
+  color: #839672;
+  font-size: 6px;
+  white-space: nowrap;
+}
+.route-map {
+  position: relative;
+}
+.route-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+}
+.map-label {
+  position: absolute;
+  bottom: 12px;
+  right: 17px;
+  font: 7px monospace;
+  color: #9eaf89;
+  letter-spacing: 1px;
+}
+.ats-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 22px 15px 12px;
+}
+.ats-column {
+  background: #ffffff03;
+  min-height: 110px;
+  border: 1px solid #75826827;
+  padding: 10px;
+}
+.ats-label {
+  font: 6px monospace;
+  letter-spacing: 0.4px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #9aa98d;
+}
+.ats-label i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #bdcca3;
+}
+.ats-label span {
+  margin-left: auto;
+  color: #e4bd95;
+}
+.candidate-card {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 6px;
+  background: #dde1c9;
+  color: #33412e;
+  margin-top: 18px;
+  box-shadow: 3px 3px #0a1009;
+  animation: paper 0.45s;
+}
+.candidate-avatar {
+  background: #7b8c69;
+  color: #e2e8d4;
+  padding: 7px;
+  font: 8px monospace;
+}
+.candidate-card b {
+  font-size: 7px;
+  font-weight: 500;
+}
+.candidate-card small {
+  display: block;
+  font: 5px monospace;
+  margin-top: 4px;
+  color: #829071;
+}
+.candidate-paper {
+  font-size: 13px;
+  margin-left: auto;
+}
+.study-action {
+  margin: 0 15px 16px;
+  padding: 8px 12px;
+  background: #e4ba90;
+  color: #263322;
+  font: 8px monospace;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.study-action:hover {
+  background: #f5d4af;
+  transform: translateX(3px);
+}
+.topic-map {
+  position: relative;
+  min-height: 165px;
+}
+.topic-map svg {
+  display: block;
+  width: 100%;
+  height: 190px;
+}
+.topic-cluster {
+  position: absolute;
+  padding: 8px 9px;
+  background: #1a2318d9;
+  border: 1px solid #83956a5e;
+  color: #d5dec5;
+  font: 9px var(--body);
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+.topic-cluster:hover,
+.topic-cluster.chosen {
+  background: #465333;
+  transform: translateY(-3px);
+}
+.topic-cluster span {
+  margin-left: 7px;
+  color: #d4ab7e;
+}
+.cluster-one {
+  left: 9%;
+  top: 62%;
+}
+.cluster-two {
+  left: 42%;
+  top: 15%;
+}
+.cluster-three {
+  right: 7%;
+  top: 65%;
+}
+.prop-label {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 20px 17px 16px;
+  font: 7px monospace;
+  letter-spacing: 0.3px;
+}
+.prop-label strong {
+  font-size: 11px;
+  color: #edc39e;
+}
+.same-line {
+  margin-left: auto;
+  color: #a2b784;
+  font-size: 6px;
+}
+.odds-table {
+  padding: 0 17px;
+}
+.odds-row {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1.4fr;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 0;
+  border-top: 1px solid #87996e20;
+  font: 10px monospace;
+}
+.odds-row.heading {
+  font-size: 6px;
+  color: #829573;
+}
+.odds-row small {
+  font-size: 5px;
+  color: #e5b68b;
+  margin-left: 6px;
+}
+.odds-row b {
+  font-size: 16px;
+  font-weight: 400;
+  color: #e5c19c;
+}
+.odds-row > span:last-child {
+  position: relative;
+  text-align: right;
+  padding: 7px;
+}
+.odds-row i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--prob);
+  background: #6f825333;
+  pointer-events: none;
+}
+.odds-row.best i {
+  background: #e5b68b33;
+}
+.document .odds-explanation {
+  font-size: 9px;
+  color: #acb89a;
+  margin: 13px 17px 20px;
+}
+.query-bubble {
+  margin: 17px 17px 0;
+  padding: 12px 15px;
+  background: #cbd5b315;
+  border-left: 2px solid #b4c696;
+  font-size: 11px;
+}
+.query-bubble > span {
+  display: block;
+  font: 5px monospace;
+  letter-spacing: 1px;
+  color: #849876;
+  margin-top: 8px;
+}
+.evidence-flow {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  padding: 17px;
+}
+.diagram-node {
+  padding: 13px 10px;
+  background: #ffffff04;
+  border: 1px solid #9aaa7a40;
+  flex: 1;
+  text-align: left;
+  transition:
+    transform 0.3s,
+    background 0.3s;
+  min-width: 0;
+}
+.diagram-node > span {
+  display: block;
+  font: 6px monospace;
+  color: #cbb28c;
+  letter-spacing: 1px;
+}
+.diagram-node b {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: 9px;
+  color: #d7e2c9;
+}
+.diagram-node small {
+  display: block;
+  font-size: 7px;
+  color: #819774;
+  margin-top: 7px;
+}
+.diagram-node:hover,
+.diagram-node.chosen {
+  transform: translateY(-3px);
+  background: #91a16d1f;
+  border-color: #cdb087;
+}
+.flow-plus {
+  color: #a7b58c;
+  font-size: 14px;
+}
+.audio-pipeline {
+  padding: 19px 17px;
+}
+.wave-input > span {
+  font: 6px monospace;
+  color: #879d76;
+  letter-spacing: 1px;
+}
+.wave-input > div {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 5px 0 15px;
+}
+.wave-input i {
+  display: block;
+  width: 3px;
+  height: var(--h);
+  background: #d2b18a;
+  animation: wave-breathe 1.8s ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+.audio-stages {
+  display: flex;
+  gap: 9px;
+}
+.sensor-flow {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+  padding: 22px 17px;
+}
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px;
+  aspect-ratio: 1;
+  width: 120px;
+  flex-shrink: 0;
+}
+.sensor-grid i {
+  background: #c6d6a2;
+  animation: pixel-scan 3s ease-in-out infinite;
+}
+.sensor-stages {
+  display: flex;
+  gap: 9px;
+  flex: 1;
+}
+@keyframes wave-breathe {
+  from {
+    transform: scaleY(0.6);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes pixel-scan {
+  50% {
+    filter: brightness(1.5);
+  }
+}
+@media (max-width: 760px) {
+  .room-object {
+    display: none;
+  }
+  .walking .cabinet-scene {
+    transform: scale(1.2) translateY(-12%);
+  }
+  .walking .room {
+    transform: scale(1.3);
+  }
+  .walk-status {
+    left: 7%;
+    top: 40%;
+    font-size: 8px;
+  }
+  .study-top {
+    padding: 12px;
+    font-size: 6px;
+  }
+  .study-live {
+    display: none;
+  }
+  .study-caption {
+    font-size: 9px;
+    padding: 12px;
+  }
+  .ats-board {
+    gap: 5px;
+    padding: 14px 8px 10px;
+  }
+  .ats-column {
+    padding: 7px 4px;
+  }
+  .ats-label {
+    font-size: 5px;
+    letter-spacing: 0;
+    gap: 3px;
+  }
+  .candidate-avatar,
+  .candidate-paper {
+    display: none;
+  }
+  .candidate-card {
+    padding: 8px 4px;
+  }
+  .candidate-card b {
+    font-size: 6px;
+  }
+  .candidate-card small {
+    font-size: 5px;
+  }
+  .evidence-flow {
+    gap: 4px;
+    padding: 12px 8px;
+  }
+  .diagram-node {
+    padding: 10px 7px;
+  }
+  .diagram-node b {
+    font-size: 8px;
+  }
+  .diagram-node small {
+    font-size: 6px;
+  }
+  .diagram-node > span {
+    font-size: 5px;
+  }
+  .prop-label {
+    padding: 15px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .same-line {
+    display: none;
+  }
+  .odds-table {
+    padding: 0 12px;
+  }
+  .odds-row {
+    font-size: 9px;
+    grid-template-columns: 1fr 0.7fr 1.1fr;
+  }
+  .odds-row small {
+    display: block;
+    margin: 4px 0;
+  }
+  .sensor-grid {
+    width: 75px;
+    gap: 2px;
+  }
+  .sensor-flow {
+    gap: 8px;
+    padding: 16px 10px;
+  }
+  .sensor-stages {
+    gap: 5px;
+  }
+  .audio-pipeline {
+    padding: 15px 12px;
+  }
+  .audio-stages {
+    gap: 5px;
+  }
+  .wave-input > div {
+    gap: 3px;
+  }
+  .wave-input i {
+    width: 2px;
+  }
+  .cluster-one {
+    left: 6%;
+    top: 58%;
+  }
+  .cluster-two {
+    left: 38%;
+    top: 13%;
+  }
+  .cluster-three {
+    right: 4%;
+    top: 66%;
+  }
+  .topic-cluster {
+    font-size: 8px;
+    padding: 7px;
+  }
+  .room {
+    transform: none;
+  }
+  .interest-list p {
+    font-size: 12px;
+  }
+}
