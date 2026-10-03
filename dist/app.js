@@ -112,6 +112,16 @@ const entries = {
     },
   ],
 };
+const projectOrder = [
+  "Milemark",
+  "CampusTrendsML",
+  "UCLA ATS",
+  "PropShop",
+  "Lorenz Equations",
+];
+entries.projects.sort(
+  (a, b) => projectOrder.indexOf(a.title) - projectOrder.indexOf(b.title),
+);
 let current = "projects",
   selected = 0,
   artifactFrame;
@@ -176,7 +186,7 @@ function render() {
   if (current === "about") {
     content.innerHTML = `<div class="about-layout"><div><h3 class="about-title">Curiosity doesn’t<br>keep office hours.</h3><p class="about-copy">I’m Nikhil, a computer science student at UCLA. I enjoy finding the point where an interesting idea becomes something someone can actually use.</p><p class="about-copy">My work has taken me through financial software, sensor-data pipelines, clinical-audio research, and projects inspired by my own everyday life.</p><p class="about-copy">I’m interested in software systems, applied machine learning, and the questions that sit between disciplines.</p><div class="profile-meta"><span>BASED IN<br>LOS ANGELES</span><span>CURRENTLY<br>BUILDING & LEARNING</span></div></div><aside class="hobby-note"><h3>Beyond the work.</h3><div class="hobby"><small>01</small>Running</div><div class="hobby"><small>02</small>Writing about philosophy</div><div class="hobby"><small>03</small>Cooking something new</div><div class="hobby"><small>04</small>Weightlifting</div><p>A few things that keep me curious, grounded, and away from a screen.</p></aside></div>`;
   } else if (current === "education") {
-    content.innerHTML = `<div class="education-card"><span class="eyebrow">LOS ANGELES, CALIFORNIA</span><h3>University of California,<br>Los Angeles</h3><p>Bachelor of Science in Computer Science<br>Expected graduation: June 2028</p><div class="tags"><span>UCLA</span><span>Computer Science</span><span>Class of 2028</span></div></div><article class="document"><h4>QUESTIONS I KEEP COMING BACK TO</h4><div class="interest-list"><p><small>01</small>When software mediates our choices, where does human agency end and system design begin?</p><p><small>02</small>What does it mean for a computational model to know something, rather than merely predict it?</p><p><small>03</small>Which values are embedded in an objective function—and whose definition of “better” does it encode?</p><p><small>04</small>What responsibility does an engineer have for the unintended consequences of a system that works as designed?</p></div></article>`;
+    content.innerHTML = `<div class="education-card"><span class="eyebrow">LOS ANGELES, CALIFORNIA</span><h3>University of California,<br>Los Angeles</h3><p>Bachelor of Science in Computer Science<br>Expected graduation: June 2028</p><div class="tags"><span>UCLA</span><span>Computer Science</span><span>Class of 2028</span></div></div><article class="document"><h4>QUESTIONS I KEEP COMING BACK TO</h4><div class="interest-list"><p><small>01</small>How much freedom do we have when software shapes our choices?</p><p><small>02</small>Does a model understand, or does it only predict?</p><p><small>03</small>Whose values decide what a system calls “better”?</p><p><small>04</small>Who is responsible when well-built software causes harm?</p></div></article>`;
   } else {
     content.innerHTML = `<h3 class="contact-title">Good things start<br>with a conversation.</h3><p class="contact-sub">Want to talk about software, research, or something you found in the archive? I’d love to hear from you.</p><a class="contact-link" href="mailto:nikhiltrip1@gmail.com"><span>Email <small>nikhiltrip1@gmail.com</small></span><span>↗</span></a><a class="contact-link" href="https://github.com/nikhiltrip" target="_blank" rel="noopener"><span>GitHub <small>@nikhiltrip</small></span><span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/nikhil-tripathi-443689233" target="_blank" rel="noopener"><span>LinkedIn <small>LET’S CONNECT</small></span><span>↗</span></a><a class="contact-link" href="Nikhil-Tripathi-Resume.pdf" target="_blank" rel="noopener"><span>Résumé <small>PDF / OPEN FILE</small></span><span>↗</span></a><p class="contact-note">FROM THE PERSONAL ARCHIVE OF NIKHIL TRIPATHI.</p>`;
   }

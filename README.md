@@ -29,3 +29,5 @@ Keyboard navigation, Escape to return to the room, direct section URLs, reduced-
 Project and experience illustrations now correspond to their workflows: a continuous loop on a map, applicant stages, selectable discussion-topic clusters, implied odds probabilities, retrieval with exact SQL aggregation, audio processing with QA, and a synthetic sensor frame. Sample applicants, topics, prices, and diagrams are illustrative, not actual project results. Lorenz retains its numerical attractor animation.
 
 The entrance uses a short camera-style approach, gentle pointer parallax, and an extruded active drawer. Header navigation bypasses the entrance; Escape returns to the room and cancels the approach. Reduced-motion preferences disable the camera transition and continuing decorative animation.
+
+For Vercel, import this GitHub repository as a new project. `vercel.json` selects a static deployment with no build command and output directory `dist`. Share the production project domain rather than a protected preview URL. The portfolio uses hash-based section links, so it needs no SPA rewrite rules.

@@ -1,7 +1,6 @@
 /* Small, explanatory illustrations. All sample content is synthetic. */
 const visualNotes = {
-  route:
-    "Illustrative loop · not a real GPS trace. Follow the runner around bends, switchbacks, and the park.",
+  route: "Follow the runner around bends, switchbacks, and the park.",
   ats: "A sample application moves through submitted, review, and decision stages. Click “Move application” to try it.",
   topics:
     "Illustrative topic map · select a cluster to explore the kinds of language a discussion-analysis tool might organize.",
@@ -30,7 +29,7 @@ function projectVisual(entry) {
     return visualShell(
       type,
       "ONE APPLICATION, THROUGH THE PIPELINE",
-      `<div class="ats-board">${["SUBMITTED", "IN REVIEW", "DECISION"].map((stage, i) => `<div class="ats-column"><div class="ats-label"><i></i>${stage}<span>${i === 0 ? "01" : "00"}</span></div><div class="candidate-slot" data-slot="${i}">${i === 0 ? candidateCard() : ""}</div></div>`).join("")}</div><button class="study-action" id="advance-application">Move application →</button>`,
+      `<div class="ats-board">${["SUBMITTED", "IN REVIEW", "DECISION"].map((stage, i) => `<div class="ats-column"><div class="ats-label"><i></i>${stage}<span>${i === 0 ? "01" : "00"}</span></div><div class="candidate-slot" data-slot="${i}">${i === 0 ? candidateCard() : ""}</div></div>`).join("")}</div><div class="study-actions"><button class="study-action" id="advance-application">Move application →</button><button class="study-action reject-action" id="reject-application">Reject applicant ×</button></div>`,
     );
   if (type === "topics")
     return visualShell(
@@ -76,8 +75,8 @@ function projectVisual(entry) {
     `<div class="sensor-flow"><div class="sensor-grid" aria-label="Illustrated sensor image">${Array.from({ length: 64 }, (_, i) => `<i style="opacity:${0.12 + ((i * 17 + 7) % 37) / 46}"></i>`).join("")}</div><span class="flow-plus">→</span><div class="sensor-stages"><button class="diagram-node" data-explain="ETL turns sensor-image inputs into consistently structured data for downstream workflows."><span>01 / ETL</span><b>Process frames</b><small>Python pipelines</small></button><button class="diagram-node" data-explain="Automated checks and container-based workflows help keep processing reproducible."><span>02 / VERIFY</span><b>Test & export</b><small>Checks / Docker / CI</small></button></div></div>`,
   );
 }
-function candidateCard() {
-  return `<div class="candidate-card"><span class="candidate-avatar">A</span><div><b>Sample applicant</b><small>Application #028</small></div><span class="candidate-paper">▤</span></div>`;
+function candidateCard(outcome = "") {
+  return `<div class="candidate-card"><span class="candidate-avatar">A</span><div><b>Sample applicant</b><small>Application #028</small>${outcome ? `<span class="candidate-outcome">${outcome}</span>` : ""}</div><span class="candidate-paper">▤</span></div>`;
 }
 function wireVisual(type) {
   const study = document.querySelector(".visual-study");
@@ -94,22 +93,32 @@ function wireVisual(type) {
   );
   if (type === "ats") {
     let stage = 0;
-    study
-      .querySelector("#advance-application")
-      .addEventListener("click", () => {
-        stage = (stage + 1) % 3;
-        study
-          .querySelectorAll("[data-slot]")
-          .forEach(
-            (slot, i) => (slot.innerHTML = i === stage ? candidateCard() : ""),
-          );
-        study
-          .querySelectorAll(".ats-label span")
-          .forEach(
-            (count, i) => (count.textContent = i === stage ? "01" : "00"),
-          );
-        study.querySelector("figcaption").textContent =
-          `Sample application: ${["submitted", "in review", "decision"][stage]}. This is an interactive illustration, not real applicant data.`;
+    let outcome = "";
+    const move = study.querySelector("#advance-application");
+    const reject = study.querySelector("#reject-application");
+    function update() {
+      study.querySelectorAll("[data-slot]").forEach((slot, i) => {
+        slot.innerHTML = i === stage ? candidateCard(outcome) : "";
       });
+      study.querySelectorAll(".ats-label span").forEach((count, i) => {
+        count.textContent = i === stage ? "01" : "00";
+      });
+      study.classList.toggle("has-rejection", outcome === "Rejected");
+      move.textContent = stage === 2 ? "Start over ↺" : "Move application →";
+      reject.disabled = outcome === "Rejected";
+      study.querySelector("figcaption").textContent = outcome
+        ? "Application #028: rejected. Start over to try the workflow again."
+        : `Application #028: ${["submitted", "in review", "awaiting decision"][stage]}.`;
+    }
+    move.addEventListener("click", () => {
+      stage = stage === 2 ? 0 : stage + 1;
+      outcome = "";
+      update();
+    });
+    reject.addEventListener("click", () => {
+      stage = 2;
+      outcome = "Rejected";
+      update();
+    });
   }
 }

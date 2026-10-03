@@ -1733,3 +1733,105 @@ footer button {
     font-size: 12px;
   }
 }
+/* Use a flat painted cabinet with a dimensional silhouette. Nested preserve-3d
+   and filtered ancestors lose opaque faces in embedded WebKit on pointer moves. */
+.cabinet-scene {
+  perspective: none;
+  isolation: isolate;
+}
+.cabinet {
+  transform: skewY(-1.5deg);
+  transform-style: flat;
+  filter: none;
+  box-shadow: 22px 25px 35px #05080570;
+}
+.cabinet-face {
+  z-index: 2;
+  background-color: #75806a;
+  backface-visibility: visible;
+}
+.cabinet-side {
+  z-index: 1;
+  right: -16px;
+  width: 17px;
+  transform: skewY(28deg);
+  transform-origin: top left;
+  background: #394631;
+}
+.cabinet-top {
+  z-index: 1;
+  top: -10px;
+  height: 11px;
+  transform: skewX(-56deg);
+  transform-origin: bottom left;
+  padding: 0 8px;
+  align-items: center;
+  overflow: hidden;
+}
+.drawer {
+  transform-style: flat;
+  background-color: #818c75;
+}
+.drawer:hover,
+.drawer.active {
+  transform: translate(-5px, -2px);
+}
+.entered .drawer.active {
+  transform: translate(-12px, -3px);
+}
+.room {
+  perspective: none;
+}
+.shelves-left {
+  transform: skewY(18deg);
+}
+.shelves-right {
+  transform: skewY(-18deg);
+}
+.study-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 0 15px 16px;
+}
+.study-actions .study-action {
+  margin: 0;
+}
+.reject-action {
+  color: #dfb49f;
+  background: transparent;
+  border: 1px solid #ae785b6b;
+}
+.reject-action:hover {
+  background: #ad74572e;
+  color: #f2d2c0;
+}
+.reject-action:disabled {
+  opacity: 0.4;
+  cursor: default;
+  transform: none;
+}
+.candidate-outcome {
+  display: block;
+  color: #98543e;
+  font: 6px monospace;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+.has-rejection .candidate-card {
+  background: #e7d1c0;
+}
+@media (max-width: 760px) {
+  .study-actions {
+    padding: 0 8px 13px;
+    gap: 6px;
+  }
+  .study-actions button {
+    font-size: 7px;
+    padding: 8px;
+  }
+}
+.cabinet-top span {
+  visibility: hidden;
+}
