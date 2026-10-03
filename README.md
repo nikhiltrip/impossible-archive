@@ -1,33 +1,51 @@
 # The Impossible Archive
 
-Nikhil Tripathi's interactive portfolio. A filing cabinet opens into experience dossiers, project folders, an About Me note, education, and contact information.
+[Explore my portfolio](https://impossible-archive-five.vercel.app/)
 
-## Run locally
+I’m Nikhil Tripathi, a computer science student at UCLA. I built this portfolio as an interactive archive of my software projects, research, experience, and interests.
 
-Serve `dist/` with any static web server. For example:
+Instead of a conventional page of project cards, I designed a room with a filing cabinet. Each drawer opens a different part of my story.
+
+## Inside my archive
+
+- **Experience:** My work at Visa, the UCLA Stress Lab, and Rivet Industries.
+- **Projects:** Milemark, CampusTrendsML, UCLA ATS, PropShop, and my Lorenz equations exploration.
+- **About me:** My interests outside software, including running, writing about philosophy, cooking, and weightlifting.
+- **Education:** My studies at UCLA and questions I think about at the intersection of philosophy and software engineering.
+- **Contact:** My email, GitHub, LinkedIn, and résumé.
+
+I added interactive visual explanations to connect each project with its actual workflow. Visitors can follow a running route, move a sample applicant through review stages, explore topic clusters, compare example odds, and watch a numerical Lorenz attractor.
+
+These visual explanations use illustrative inputs. I do not publish clinical records, participant audio, employer code, or my Garmin account data here.
+
+## How I built it
+
+I used HTML, CSS, and JavaScript, with SVG and Canvas for the visual elements. I built the cabinet and room directly in CSS and hosted the font locally. The site does not need a backend, API keys, or a framework build step.
+
+I included keyboard navigation, direct section links, an Escape shortcut to return to the room, reduced-motion support, and layouts for smaller screens. I do not use tracking or analytics.
+
+## Run my portfolio locally
+
+Serve the `dist` folder with a static web server:
 
 ```sh
 python3 -m http.server 8010 --directory dist
 ```
 
-No framework, build step, API keys, accounts, or external font services are needed. Deploy `dist/` as a static site. On Vercel, use the Other framework preset, no build command, and `dist` as the output directory.
+Then open `http://localhost:8010`.
 
-## Contents
+## Project files
 
-- `dist/index.html`: room, cabinet, and navigation
-- `dist/style.css`: responsive CSS scene and paper layouts
-- `dist/app.js`: drawer navigation, content, and canvas visual studies
-- `dist/Nikhil-Tripathi-Resume.pdf`: owner-supplied résumé
-- `dist/fonts`: self-hosted font and license
+- `dist/index.html`: My room, cabinet, and navigation.
+- `dist/style.css`: My responsive layouts, room styling, and transitions.
+- `dist/app.js`: My portfolio content and navigation logic.
+- `dist/visuals.js`: My interactive project and experience illustrations.
+- `dist/Nikhil-Tripathi-Resume.pdf`: My résumé.
+- `dist/fonts/`: My self-hosted font and its license.
+- `vercel.json`: My static deployment configuration.
 
-Canvas visual studies are illustrations, not live project telemetry. Only the Lorenz sketch performs a numerical integration. Project descriptions distinguish working code from prototypes and unfinished work. No participant audio, clinical records, employer code, or Garmin account data is included.
+## Deployment
 
-Keyboard navigation, Escape to return to the room, direct section URLs, reduced-motion preferences, and a simplified mobile layout are supported. No tracking or analytics is installed.
+I host the public portfolio on Vercel and keep the source in this repository. My deployment serves `dist` without a build command. Section URLs use hash navigation, so they do not require rewrite rules.
 
-## Interactive visual explanations
-
-Project and experience illustrations now correspond to their workflows: a continuous loop on a map, applicant stages, selectable discussion-topic clusters, implied odds probabilities, retrieval with exact SQL aggregation, audio processing with QA, and a synthetic sensor frame. Sample applicants, topics, prices, and diagrams are illustrative, not actual project results. Lorenz retains its numerical attractor animation.
-
-The entrance uses a short camera-style approach, gentle pointer parallax, and an extruded active drawer. Header navigation bypasses the entrance; Escape returns to the room and cancels the approach. Reduced-motion preferences disable the camera transition and continuing decorative animation.
-
-For Vercel, import this GitHub repository as a new project. `vercel.json` selects a static deployment with no build command and output directory `dist`. Share the production project domain rather than a protected preview URL. The portfolio uses hash-based section links, so it needs no SPA rewrite rules.
+[Visit The Impossible Archive](https://impossible-archive-five.vercel.app/)
