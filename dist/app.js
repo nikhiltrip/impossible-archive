@@ -122,6 +122,10 @@ const projectOrder = [
 entries.projects.sort(
   (a, b) => projectOrder.indexOf(a.title) - projectOrder.indexOf(b.title),
 );
+entries.projects.forEach((project, index) => {
+  project.id = `P—${String(index + 1).padStart(3, "0")}`;
+});
+
 let current = "projects",
   selected = 0,
   artifactFrame;
