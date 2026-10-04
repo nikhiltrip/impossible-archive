@@ -134,7 +134,7 @@ const app = document.querySelector("#app"),
 document.querySelector("#drawers").innerHTML = sections
   .map(
     ([key, no, label]) =>
-      `<button class="drawer" data-section="${key}" aria-label="Open ${label.toLowerCase()} drawer"><span class="drawer-no">${no}</span><span class="drawer-label">${label}</span><span class="handle"></span><span class="drawer-arrow">↗</span></button>`,
+      `<button class="drawer" data-section="${key}" aria-label="Open ${label.toLowerCase()} drawer"><span class="drawer-no">${no}</span><span class="drawer-label">${label}</span><span class="handle"></span></button>`,
   )
   .join("");
 function openSection(key, focus = true) {

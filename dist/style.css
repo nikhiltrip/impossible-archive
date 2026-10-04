@@ -480,13 +480,6 @@ h1 em {
     inset 0 2px 3px #0008;
   background: #535e47;
 }
-.drawer-arrow {
-  position: absolute;
-  right: 13px;
-  bottom: 12px;
-  font-size: 10px;
-  color: #38422e;
-}
 .cabinet-base {
   height: 30px;
   display: flex;
