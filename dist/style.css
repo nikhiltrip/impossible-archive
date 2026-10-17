@@ -1815,3 +1815,341 @@ footer button {
 .cabinet-top span {
   visibility: hidden;
 }
+/* Typewritten pages and a cabinet drawn with stepped, low-resolution edges. */
+@font-face {
+  font-family: ArchiveMono;
+  src: url(fonts/IBMPlexMono-Regular.ttf) format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: ArchivePixel;
+  src: url(fonts/VT323-Regular.ttf) format("truetype");
+  font-display: swap;
+}
+:root {
+  --body: ArchiveMono, "Courier New", monospace;
+  --paper: #e8e1cf;
+  --orange: #d7a16c;
+}
+body {
+  font-size: 12px;
+}
+.intro {
+  padding-top: 10vh;
+}
+.intro h1 {
+  font-family: ArchivePixel, "Courier New", monospace;
+  font-size: clamp(78px, 8vw, 134px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -2px;
+  margin: 30px 0 32px;
+  color: #e5dfc9;
+}
+.name-cursor {
+  color: #b9a67e;
+  font-size: 0.6em;
+  margin-left: 5px;
+  animation: cursor-breathe 2.5s steps(1, end) infinite;
+}
+.intro > p {
+  font-size: 12px;
+  line-height: 2;
+  color: #b2b4a0;
+}
+.intro-note {
+  margin-top: 37px;
+}
+.wordmark small {
+  letter-spacing: 1.3px;
+}
+.enter {
+  font:
+    12px ArchiveMono,
+    monospace;
+  background: #d9ba86;
+  border: 2px solid #171d14;
+  box-shadow: 3px 3px 0 #080d07;
+  padding: 15px 18px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+.enter:hover {
+  background: #edcfa0;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #080d07;
+}
+.cabinet {
+  transform: skewY(-1deg);
+  box-shadow:
+    6px 0 0 #252c20,
+    10px 7px 0 #1c2419,
+    18px 21px 0 #0c120a55;
+  height: 450px;
+}
+.cabinet-face {
+  border: 3px solid #31392c;
+  border-radius: 0;
+  background: repeating-linear-gradient(0deg, #c0bba6 0 2px, #b9b49e 2px 4px);
+  box-shadow:
+    inset 4px 4px 0 #dfd9be,
+    inset -5px -5px 0 #817f69;
+  padding: 0 10px;
+  clip-path: polygon(
+    0 4px,
+    4px 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+}
+.cabinet-top {
+  background: #d5cdb2;
+  border: 2px solid #333d2c;
+  top: -8px;
+  height: 9px;
+  transform: skewX(-45deg);
+  right: -3px;
+}
+.cabinet-side {
+  background: repeating-linear-gradient(0deg, #6e705c 0 2px, #747560 2px 4px);
+  border: 2px solid #30392b;
+  right: -13px;
+  width: 16px;
+  transform: skewY(24deg);
+}
+.cabinet-brand {
+  font:
+    20px ArchivePixel,
+    monospace;
+  letter-spacing: 1px;
+  color: #444a37;
+  padding: 7px 10px 0;
+  height: 48px;
+}
+.cabinet-brand small {
+  font:
+    6px ArchiveMono,
+    monospace;
+  letter-spacing: 1.5px;
+  color: #696f58;
+  margin-top: 3px;
+}
+.drawer {
+  height: 69px;
+  border: 2px solid #555d46;
+  border-radius: 0;
+  border-bottom: 4px solid #464f39;
+  background: repeating-linear-gradient(0deg, #aaa993 0 2px, #a4a48e 2px 4px);
+  box-shadow:
+    inset 3px 3px 0 #d3cdb2,
+    inset -3px -2px 0 #868c73,
+    2px 3px 0 #3c452f;
+  margin-bottom: 4px;
+  transition:
+    transform 0.3s,
+    background 0.3s;
+}
+.drawer:hover,
+.drawer.active {
+  background: #b9b79d;
+  transform: translate(-6px, -2px);
+  box-shadow:
+    inset 3px 3px 0 #e2d7b7,
+    inset -3px -2px 0 #868c73,
+    7px 6px 0 #303a25;
+}
+.entered .drawer.active {
+  transform: translate(-9px, -2px);
+  box-shadow:
+    inset 3px 3px 0 #e2d7b7,
+    inset -3px -2px 0 #868c73,
+    10px 7px 0 #303a25;
+}
+.drawer-label {
+  font:
+    18px ArchivePixel,
+    "Courier New",
+    monospace;
+  letter-spacing: 1px;
+  min-width: 144px;
+  padding: 1px 10px;
+  top: 9px;
+  background: #e6dab9;
+  border: 1px solid #4c543c;
+  box-shadow:
+    0 0 0 2px #70795d,
+    2px 2px 0 #434b36;
+  transform: none;
+}
+.drawer:nth-child(2) .drawer-label {
+  transform: rotate(-1deg);
+}
+.drawer:nth-child(4) .drawer-label {
+  transform: rotate(0.8deg);
+}
+.drawer-no {
+  font:
+    7px ArchiveMono,
+    monospace;
+  color: #4b543d;
+  top: 12px;
+  left: 8px;
+}
+.drawer:before {
+  display: none;
+}
+.handle {
+  width: 58px;
+  height: 13px;
+  bottom: 9px;
+  border: 3px solid #424e35;
+  border-top-color: #e0d4af;
+  border-left-color: #b5b89b;
+  border-radius: 0;
+  background: #6b7659;
+  box-shadow:
+    0 3px 0 #343f2a,
+    inset 0 2px 0 #39472e;
+}
+.cabinet-base {
+  font:
+    6px ArchiveMono,
+    monospace;
+  color: #60674e;
+  height: 28px;
+}
+.cabinet-shadow {
+  filter: blur(12px);
+}
+.archive-heading h2 {
+  font-family: ArchivePixel, monospace;
+  font-size: 54px;
+  letter-spacing: 0;
+}
+.document h3 {
+  font-family: ArchivePixel, monospace;
+  font-size: 38px;
+  letter-spacing: 0;
+}
+.document .lead {
+  font-size: 12px;
+}
+.document p {
+  font-size: 11px;
+  line-height: 1.95;
+}
+.folder-tab {
+  border-radius: 0;
+  box-shadow: 2px 2px 0 #afa98e;
+}
+.folder-tab:before {
+  border-radius: 0;
+}
+.folder-tab b {
+  font-size: 10px;
+}
+.folder-tab.selected {
+  box-shadow: 3px 3px 0 #aaa286;
+}
+.document-head {
+  letter-spacing: 0.4px;
+}
+.contact-link {
+  font-size: 17px;
+}
+.contact-title {
+  font-size: 39px;
+}
+.about-copy {
+  font-size: 12px;
+}
+.hobby {
+  font-size: 10px;
+}
+.hobby-note p {
+  font-size: 10px;
+}
+.education-card h3 {
+  font-size: 24px;
+  line-height: 1.4;
+}
+.interest-list p {
+  font-size: 11px;
+  line-height: 1.95;
+}
+@keyframes cursor-breathe {
+  50% {
+    opacity: 0.25;
+  }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .intro {
+    width: 65%;
+    padding-left: 6%;
+  }
+  .intro h1 {
+    font-size: 92px;
+  }
+  .cabinet-scene {
+    right: 6%;
+    top: 24%;
+    transform: scale(0.73);
+    transform-origin: top right;
+  }
+  .entered .cabinet-scene {
+    right: 77%;
+    top: 13%;
+    transform: scale(0.65);
+    transform-origin: top center;
+  }
+  .archive {
+    margin-left: 27%;
+  }
+}
+@media (max-width: 760px) {
+  .intro {
+    padding-top: 38px;
+  }
+  .intro h1 {
+    font-size: 88px;
+    line-height: 0.88;
+    margin: 25px 0;
+  }
+  .intro > p {
+    font-size: 11px;
+  }
+  .cabinet-scene {
+    margin-top: 55px;
+  }
+  .archive-heading h2 {
+    font-size: 42px;
+  }
+  .document h3 {
+    font-size: 34px;
+  }
+  .document p {
+    font-size: 11px;
+  }
+  .folder-tab b {
+    font-size: 9px;
+  }
+  .contact-link {
+    font-size: 14px;
+  }
+  .wordmark small {
+    font-size: 5px;
+  }
+  .name-cursor {
+    font-size: 0.5em;
+  }
+}
