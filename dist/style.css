@@ -1819,12 +1819,12 @@ footer button {
 @font-face {
   font-family: ArchiveMono;
   src: url(fonts/IBMPlexMono-Regular.ttf) format("truetype");
-  font-display: swap;
+  font-display: block;
 }
 @font-face {
   font-family: ArchivePixel;
   src: url(fonts/VT323-Regular.ttf) format("truetype");
-  font-display: swap;
+  font-display: block;
 }
 :root {
   --body: ArchiveMono, "Courier New", monospace;
