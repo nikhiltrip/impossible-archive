@@ -212,7 +212,6 @@ function enterArchive(key = "projects") {
   clearTimeout(walkTimer);
   app.classList.add("walking");
   document.querySelector("#enter").disabled = true;
-  document.querySelector(".walk-status").textContent = "Entering the archive…";
   walkTimer = setTimeout(() => {
     app.classList.remove("walking");
     document.querySelector("#enter").disabled = false;
