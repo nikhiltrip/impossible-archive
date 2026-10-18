@@ -4,13 +4,13 @@ const visualNotes = {
   ats: "A sample application moves through submitted, review, and decision stages. Click “Move application” to try it.",
   topics:
     "Illustrative topic map · select a cluster to explore the kinds of language a discussion-analysis tool might organize.",
-  odds: "Illustrative prices for the same fictional prop. Implied probability = 1 / decimal odds. No live bets or prices.",
+  odds: "Illustrative prices for the same fictional prop. Implied probability = 1 / decimal odds.",
   retrieval:
-    "Conceptual workflow · a question connects to retrieval and SQL, then source information supports an answer. No employer data.",
+    "Conceptual workflow · a question connects to retrieval and SQL, then source information supports an answer.",
   audio:
-    "Conceptual research pipeline · synthetic waveform, local transcription, acoustic features, and quality checks. No participant data.",
+    "Conceptual research pipeline · synthetic waveform, local transcription, acoustic features, and quality checks.",
   sensor:
-    "Conceptual engineering workflow · a synthetic sensor frame is processed and checked before export. No company images.",
+    "Conceptual engineering workflow · a synthetic sensor frame is processed and checked before export.",
 };
 function visualShell(type, title, body) {
   return `<figure class="visual-study visual-${type}" aria-label="${title}"><div class="study-top"><span>${title}</span><span class="study-live">ILLUSTRATED WORKFLOW</span></div>${body}<figcaption class="study-caption" aria-live="polite">${visualNotes[type]}</figcaption></figure>`;

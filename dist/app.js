@@ -91,7 +91,7 @@ const entries = {
       id: "E—002",
       category: "UNDERGRADUATE RESEARCH",
       subtitle: "Preparing clinical audio for stress research.",
-      body: "Ongoing research at UCLA’s Semel Institute, working on the audio-processing steps that come before analysis. That includes preparing recordings, extracting acoustic features, and checking transcripts.",
+      body: "Extracting acoustic features from clinical recordings at UCLA’s Semel Institute to study vocal stress and compare changes before and after lifestyle interventions across study groups.",
       notes:
         "Built local Whisper transcription and Librosa feature extraction with Pandas analysis workflows. Added checks for missing recordings and transcript-quality problems. The stress measures are exploratory; participant data stays private.",
       tags: ["Python", "Whisper", "Librosa", "Research"],
@@ -192,7 +192,7 @@ function render() {
   } else if (current === "education") {
     content.innerHTML = `<div class="education-card"><span class="eyebrow">LOS ANGELES, CALIFORNIA</span><h3>University of California,<br>Los Angeles</h3><p>Bachelor of Science in Computer Science<br>Expected graduation: June 2028</p><div class="tags"><span>UCLA</span><span>Computer Science</span><span>Class of 2028</span></div></div><article class="document"><h4>QUESTIONS I KEEP COMING BACK TO</h4><div class="interest-list"><p><small>01</small>How much freedom do we have when software shapes our choices?</p><p><small>02</small>Does a model understand, or does it only predict?</p><p><small>03</small>Whose values decide what a system calls “better”?</p><p><small>04</small>Who is responsible when well-built software causes harm?</p></div></article>`;
   } else {
-    content.innerHTML = `<h3 class="contact-title">Good things start<br>with a conversation.</h3><p class="contact-sub">Want to talk about software, research, or something you found in the archive? I’d love to hear from you.</p><a class="contact-link" href="mailto:nikhiltrip1@gmail.com"><span>Email <small>nikhiltrip1@gmail.com</small></span><span>↗</span></a><a class="contact-link" href="https://github.com/nikhiltrip" target="_blank" rel="noopener"><span>GitHub <small>@nikhiltrip</small></span><span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/nikhil-tripathi-443689233" target="_blank" rel="noopener"><span>LinkedIn <small>LET’S CONNECT</small></span><span>↗</span></a><a class="contact-link" href="Nikhil-Tripathi-Resume.pdf" target="_blank" rel="noopener"><span>Résumé <small>PDF / OPEN FILE</small></span><span>↗</span></a><p class="contact-note">FROM THE PERSONAL ARCHIVE OF NIKHIL TRIPATHI.</p>`;
+    content.innerHTML = `<p class="contact-sub">Want to talk about software, research, or something you found in the archive? I’d love to hear from you.</p><a class="contact-link" href="mailto:nikhiltrip1@gmail.com"><span>Email <small>nikhiltrip1@gmail.com</small></span><span>↗</span></a><a class="contact-link" href="https://github.com/nikhiltrip" target="_blank" rel="noopener"><span>GitHub <small>@nikhiltrip</small></span><span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/in/nikhil-tripathi-443689233" target="_blank" rel="noopener"><span>LinkedIn <small>LET’S CONNECT</small></span><span>↗</span></a><a class="contact-link" href="Nikhil-Tripathi-Resume.pdf" target="_blank" rel="noopener"><span>Résumé <small>PDF / OPEN FILE</small></span><span>↗</span></a><p class="contact-note">FROM THE PERSONAL ARCHIVE OF NIKHIL TRIPATHI.</p>`;
   }
 }
 function renderDocument() {
