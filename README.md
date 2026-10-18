@@ -1,6 +1,6 @@
-# The Impossible Archive
+# My Portfolio
 
-[Explore my portfolio](https://impossible-archive-five.vercel.app/)
+[Explore my portfolio](https://nikhiltrip.vercel.app/)
 
 I’m Nikhil Tripathi, a computer science student at UCLA. I built this portfolio as an interactive archive of my software projects, research, experience, and interests.
 
@@ -48,4 +48,4 @@ Then open `http://localhost:8010`.
 
 I host the public portfolio on Vercel and keep the source in this repository. My deployment serves `dist` without a build command. Section URLs use hash navigation, so they do not require rewrite rules.
 
-[Visit The Impossible Archive](https://impossible-archive-five.vercel.app/)
+[Visit my portfolio](https://nikhiltrip.vercel.app/)

@@ -48,7 +48,7 @@ button {
   background: none;
 }
 header {
-  height: 100px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,7 +109,7 @@ nav a:hover {
 }
 main {
   position: relative;
-  min-height: calc(100svh - 100px);
+  min-height: calc(100svh - 72px);
   overflow: hidden;
 }
 .room {
@@ -1114,7 +1114,7 @@ footer button {
 /* Keep every drawer accessible on narrow screens without replaying the room. */
 @media (max-width: 760px) {
   header {
-    height: 112px;
+    height: 96px;
     align-items: flex-start;
     padding-top: 17px;
   }
@@ -1137,7 +1137,7 @@ footer button {
     margin-left: auto;
   }
   main {
-    min-height: calc(100svh - 112px);
+    min-height: calc(100svh - 96px);
   }
 }
 /* A short approach through the room, followed by the selected drawer. */
@@ -2152,4 +2152,26 @@ body {
   .name-cursor {
     font-size: 0.5em;
   }
+}
+
+/* Anchor the lamp to the cabinet center at each layout breakpoint. */
+main { --cabinet-center: calc(80% - 135px); }
+.light-wire { left: var(--cabinet-center); }
+.light { left: calc(var(--cabinet-center) - 39px); }
+.light-cone { left: calc(var(--cabinet-center) - 22.5%); }
+@media (max-width: 1100px) {
+  main { --cabinet-center: calc(87% - 135px); }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  main { --cabinet-center: calc(94% - 98.55px); }
+}
+@media (min-width: 761px) {
+  main:not(.entered) { height: calc(100svh - 72px); min-height: 0; }
+  .intro { padding-bottom: 80px; }
+}
+@media (min-width: 761px) and (max-height: 720px) {
+  .intro { padding-top: 4vh; }
+  .intro h1 { font-size: clamp(68px, 12vh, 92px); margin: 20px 0; }
+  .cabinet-scene { top: 12%; }
+  .intro-note { margin-top: 28px; }
 }
