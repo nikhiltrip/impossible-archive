@@ -51,13 +51,13 @@ const entries = {
       id: "P—004",
       category: "TEXT × DATA",
       subtitle: "Making sense of campus discussion posts.",
-      body: "A project for exploring what students talk about and how those discussions change over time. The first step was preparing the text and extracting timing, sentiment, and engagement features.",
+      body: "A working Python pipeline and React dashboard for exploring campus discussions, topic changes, and post engagement. Tested on synthetic posts with artificial upvote counts.",
       notes:
-        "Implemented JSON and CSV ingestion, duplicate removal, and text preprocessing in Python. The repository contains the data-preparation work. Model training and evaluation are unfinished.",
-      tags: ["Python", "Pandas", "Text processing"],
+        "Implemented CSV/JSON ingestion, text preprocessing, topic analysis, and time-based training and evaluation. The dashboard shows sample posts, trends, and model results. Real campus data collection and evaluation are the next steps; predictive performance on real posts remains unverified.",
+      tags: ["Python", "React", "Text analysis"],
       art: "topics",
       link: "https://github.com/nikhiltrip/campustrends",
-      status: "IN DEVELOPMENT",
+      status: "TESTED ON SYNTHETIC DATA",
     },
     {
       title: "PropShop",
