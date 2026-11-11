@@ -53,3 +53,5 @@ I host the public portfolio on Vercel and keep the source in this repository. My
 ## Public research summary
 
 My Stress Lab entry links to `/research/`, a read-only summary using selected real aggregate results. It reuses the private dashboard styling. The published files contain three broad trial-arm summaries and whole-sample findings, with no participant rows, aliases, recordings, transcripts, study file paths, or record exports. My research repository and full dashboard remain private.
+
+The public research overview includes the saved baseline feature-correlation figure. Each point represents a whole-sample association, not a participant. The caption distinguishes bootstrap intervals from multiple-testing correction and keeps the separate adjusted-model results clear.
