@@ -96,6 +96,7 @@ const entries = {
         "Built local Whisper transcription and Librosa feature extraction with Pandas analysis workflows. Added checks for missing recordings and transcript-quality problems. The stress measures are exploratory; participant data stays private.",
       tags: ["Python", "Whisper", "Librosa", "Research"],
       art: "audio",
+      dashboard: "/research/",
       status: "MARCH 2026 - PRESENT",
     },
     {
@@ -202,7 +203,7 @@ function renderDocument() {
     b.setAttribute("aria-pressed", String(i === selected));
   });
   document.querySelector("#document").innerHTML =
-    `<div class="document-head"><span>${e.category}</span><span>${e.id}</span></div><h3>${e.title}</h3><p class="lead">${e.subtitle}</p>${projectVisual(e)}<p>${e.body}</p><h4>INSIDE THE FILE</h4><p>${e.notes}</p><div class="tags">${e.tags.map((t) => `<span>${t}</span>`).join("")}</div><div class="doc-links">${e.link ? `<a href="${e.link}" target="_blank" rel="noopener">Explore source ↗</a>` : ""}<span class="contact-note" style="margin:0">${e.status}</span></div>`;
+    `<div class="document-head"><span>${e.category}</span><span>${e.id}</span></div><h3>${e.title}</h3><p class="lead">${e.subtitle}</p>${projectVisual(e)}<p>${e.body}</p><h4>INSIDE THE FILE</h4><p>${e.notes}</p><div class="tags">${e.tags.map((t) => `<span>${t}</span>`).join("")}</div><div class="doc-links">${e.dashboard ? `<a href="${e.dashboard}" target="_blank" rel="noopener">View research dashboard ↗</a>` : ""}${e.link ? `<a href="${e.link}" target="_blank" rel="noopener">Explore source ↗</a>` : ""}<span class="contact-note" style="margin:0">${e.status}</span></div>`;
   if (e.art === "lorenz") drawArtifact(e.art);
   wireVisual(e.art);
 }

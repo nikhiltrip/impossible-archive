@@ -49,3 +49,7 @@ Then open `http://localhost:8010`.
 I host the public portfolio on Vercel and keep the source in this repository. My deployment serves `dist` without a build command. Section URLs use hash navigation, so they do not require rewrite rules.
 
 [Visit my portfolio](https://nikhiltrip.vercel.app/)
+
+## Public research summary
+
+My Stress Lab entry links to `/research/`, a read-only summary using selected real aggregate results. It reuses the private dashboard styling. The published files contain three broad trial-arm summaries and whole-sample findings, with no participant rows, aliases, recordings, transcripts, study file paths, or record exports. My research repository and full dashboard remain private.
